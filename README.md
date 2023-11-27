@@ -7,7 +7,15 @@ The goal of {arcgazgen} is to ...
 
 ## Installation
 
-You can install the development version of {arcgazgen} like so:
+For the time being (as long as this package is still private), you will need to download the package using the green button labelled "<> code" above.
+Assuming you downloaded into your Downloads folder (`~/Downloads/`), you will need to un-zip it to be able to install {arcgazgen} with the package with {remotes}:
+
+```r
+remotes::install_local("~/Downloads/arcgazgen-master/")
+```
+
+
+You can install the development version of {arcgazgen} like so (not yet):
 
 ``` r
 remotes::install_github("k-hench/arcgazgen")
