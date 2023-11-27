@@ -1,0 +1,33 @@
+destination: docs
+url: https://k-hench.github.io/arcgazgen/
+
+authors:
+  Kosmas Hench:
+    href: https://k-hench.github.io/kh/
+
+template:
+  params:
+    bootswatch: yeti
+
+reference:
+  - title: "arcgazgengen functions"
+    desc: >
+      Core idea of the package.
+    contents:
+      - directed_coords
+      - geom_ag_genome
+      - scale_x_ag_genome
+      - theme_ag_genome
+      - ag_gene_data
+      - ag_plot_zoom
+  - title: "Data Sets and Defaults"
+    desc: >
+      Data that comes with the package
+    contents:
+      - arcgaz_genome
+      - arcgaz_genome_start
+      - arcgaz_genome_unplaced
+      - arcgaz_genes
+      - arcgaz_exons
+      - argcaz_busco
+      - argcaz_busco_go

@@ -1,10 +1,15 @@
 Package: arcgazgen
-Title: What the Package Does (One Line, Title Case)
+Title: Provides Antarctic Fur Seal PopGen Data and Functions
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: person("Kosmas", "Hench", email="khench@posteo.net", role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0003-1119-187X"))
+Description: Basic reference data for population genomic studies in Antarctic
+  fur seals (Arctocephalus gazella). It includes summary data of the dovetail reference
+  genome (accession number: tba) as well its annotation.
+  Furthermore it includes some functions to use the reference data  to put new data
+  into context.
+URL: https://github.com/k-hench/arcgazgen
+BugReports: https://github.com/k-hench/arcgazgen/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -13,7 +18,11 @@ Imports:
     dplyr,
     ggplot2,
     readr,
-    tidyr
+    tidyr,
+    stringr
 Depends: 
     R (>= 2.10)
 LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

@@ -1,0 +1,93 @@
+---
+title: "arcgazgen intro"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{arcgazgen intro}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options:
+  chunk_output_type: console
+---
+
+```{css, echo = FALSE}
+img {
+  border: 0;
+}
+```
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## About the package:
+
+## Installation
+
+Using the **remotes** package, **arcgazgen** can be installed directly from github:
+
+```{r install, eval = FALSE}
+remotes::install_github("k-hench/arcgazgen")
+```
+
+```{r}
+#| fig.width: 6
+#| fig.height: 2
+library(arcgazgen)
+
+ggplot2::ggplot() +
+ geom_ag_genome() +
+ scale_x_ag_genome() +
+ ggplot2::coord_cartesian(xlim = c(0, max(arcgazgen::arcgaz_genome$end)),
+                          ylim = 0:1,
+                          expand = 0) +
+ theme_ag_genome()
+```
+
+
+```{r}
+data_annotation_zoom <- ag_gene_data(z_chr = "mscaf_a1_03",
+                                     z_start = 12000,
+                                     z_end =  45000, 
+                                     focal_genes = "ABO")
+
+head(data_annotation_zoom$data[[1]])
+
+head(data_annotation_zoom$data[[2]])
+```
+
+
+```{r}
+#| fig.width: 6
+#| fig.height: 2
+ggplot2::ggplot() +
+  ag_plot_zoom(z_chr = "mscaf_a1_03",
+               z_start = 12000,
+               z_end =  145000,
+               focal_genes = c("ABO", "ZNF717"),
+               labels = NA, 
+               n_tracks = 2,
+               style = "simple") +
+  ggplot2::scale_color_brewer(palette = "Set1")
+```
+
+```{r}
+#| fig.width: 6
+#| fig.height: 4
+ggplot2::ggplot() +
+  ag_plot_zoom(z_chr = "mscaf_a1_03",
+               z_start =  12000,
+               z_end =  145000,
+               focal_genes = c("ABO", "ZNF717"),
+               labels = "focal", 
+               n_tracks = 5, style = "exons") +
+  ggplot2::scale_color_brewer(palette = "Set1")
+```
+
+------------------------
+
+```{r, echo = FALSE, fig.asp = 1, out.height = "150pt", out.width = "150pt", fig.align = "center"}
+cowplot::ggdraw(hypoimg::hypo_read_svg(here::here("vignettes/logo.c.svg")))
+```
