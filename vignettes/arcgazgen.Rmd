@@ -81,7 +81,7 @@ ggplot2::ggplot() +
                z_start =  12000,
                z_end =  145000,
                focal_genes = c("ABO", "ZNF717"),
-               labels = "focal", 
+               labels = "focal",
                n_tracks = 5, style = "exons") +
   ggplot2::scale_color_brewer(palette = "Set1")
 ```

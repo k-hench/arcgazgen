@@ -48,8 +48,13 @@ ag_gene_data <- \(z_chr, z_start, z_end, n_tracks = 3, focal_genes = c()){
 #' @param track_width double, width of exon boxes
 #' @param label_offset double, horizontal offset of gene labels
 #' @param labels string, toggles which genes are labelled. One of (`"all"`: all genes, `"focal"` focal genes only, `NA`: labels off)
+#' @param label_size double, label size
+#' @param label_family character, font family of label
+#' @param label_face character, font face of label
+#' @param label_fun function, a function to modify the gene labels
 #' @param style string, toggles plotting style. One of (`exons`: exons included, `simple`: gene extends and direction are plotted)
 #' @param arrow_size double, size of gene arrow heads in `"simple"` style
+#' @param arrow_lwd double, line width of gene arrows in `"simple"` style
 #'
 #' @return
 #' @export
@@ -61,8 +66,13 @@ ag_plot_zoom <- \(z_chr, z_start, z_end,
                   track_width = .5,
                   label_offset = -.4,
                   labels = "all",
+                  label_size = 4,
+                  label_family = "sans",
+                  label_face = "plain",
+                  label_fun = identity,
                   style = "exons",
-                  arrow_size = ggplot2::unit(3, "pt")){
+                  arrow_size = ggplot2::unit(3, "pt"),
+                  arrow_lwd = .3){
   data_plot <- ag_gene_data(z_chr = z_chr,
                             z_start = z_start,
                             z_end = z_end,
@@ -71,11 +81,18 @@ ag_plot_zoom <- \(z_chr, z_start, z_end,
 
   geom_lab <- list(all = ggplot2::geom_text(data = data_plot$data[[1]],
                                             ggplot2::aes(x = mid, y = y_track + label_offset,
-                                                         label = gene_name, group = gene_id)),
+                                                         label = label_fun(gene_name),
+                                                         group = gene_id),
+                                            size = label_size,
+                                            family = label_family,
+                                            fontface = label_face),
                    focal = ggplot2::geom_text(data = data_plot$data[[1]] |>
                                                 dplyr::filter(focal_gene),
                                               ggplot2::aes(x = mid, y = y_track + label_offset,
-                                                           label = gene_name, group = gene_id)))
+                                                           label = label_fun(gene_name), group = gene_id),
+                                              size = label_size,
+                                              family = label_family,
+                                              fontface = label_face))
 
   geom_genes <- list(exons = ggplot2::geom_segment(data = data_plot$data[[1]],
                                                    ggplot2::aes(x = dstart, xend = dend,
@@ -87,8 +104,9 @@ ag_plot_zoom <- \(z_chr, z_start, z_end,
                                                                  y = y_track, yend = y_track,
                                                                  color = focal_gene,
                                                                  group = gene_id),
+                                                    linewidth = arrow_lwd,
                                                     arrow = ggplot2::arrow(type = "closed",
-                                                                           length = ggplot2::unit(3, "pt"))))
+                                                                           length = arrow_size)))
 
   geom_exon <- list(exons = ggplot2::geom_rect(data = data_plot$data[[2]],
                                                ggplot2::aes(xmin = start, xmax = end,
