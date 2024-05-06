@@ -31,13 +31,22 @@
     <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_exons.html</loc>
   </url>
   <url>
+    <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_exons_old_names.html</loc>
+  </url>
+  <url>
     <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_genes.html</loc>
+  </url>
+  <url>
+    <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_genes_old_names.html</loc>
   </url>
   <url>
     <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_genome.html</loc>
   </url>
   <url>
     <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_genome_start.html</loc>
+  </url>
+  <url>
+    <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_genome_start_old_names.html</loc>
   </url>
   <url>
     <loc>https://k-hench.github.io/arcgazgen/reference/arcgaz_genome_unplaced.html</loc>
@@ -47,6 +56,9 @@
   </url>
   <url>
     <loc>https://k-hench.github.io/arcgazgen/reference/argcaz_busco_go.html</loc>
+  </url>
+  <url>
+    <loc>https://k-hench.github.io/arcgazgen/reference/argcaz_busco_old_names.html</loc>
   </url>
   <url>
     <loc>https://k-hench.github.io/arcgazgen/reference/directed_coords.html</loc>

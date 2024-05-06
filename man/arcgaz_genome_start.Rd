@@ -3,7 +3,7 @@
 \docType{data}
 \name{arcgaz_genome_start}
 \alias{arcgaz_genome_start}
-\title{Antarctic Fur Seal Genome Scaffold  Start Positions.}
+\title{Antarctic Fur Seal Genome Scaffold Start Positions.}
 \format{
 A tibble with 18 rows and 2 variables:
 \describe{

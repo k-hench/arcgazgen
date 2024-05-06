@@ -13,8 +13,13 @@ ag_plot_zoom(
   track_width = 0.5,
   label_offset = -0.4,
   labels = "all",
+  label_size = 4,
+  label_family = "sans",
+  label_face = "plain",
+  label_fun = identity,
   style = "exons",
-  arrow_size = ggplot2::unit(3, "pt")
+  arrow_size = ggplot2::unit(3, "pt"),
+  arrow_lwd = 0.3
 )
 }
 \arguments{
@@ -34,9 +39,19 @@ ag_plot_zoom(
 
 \item{labels}{string, toggles which genes are labelled. One of (\code{"all"}: all genes, \code{"focal"} focal genes only, \code{NA}: labels off)}
 
+\item{label_size}{double, label size}
+
+\item{label_family}{character, font family of label}
+
+\item{label_face}{character, font face of label}
+
+\item{label_fun}{function, a function to modify the gene labels}
+
 \item{style}{string, toggles plotting style. One of (\code{exons}: exons included, \code{simple}: gene extends and direction are plotted)}
 
 \item{arrow_size}{double, size of gene arrow heads in \code{"simple"} style}
+
+\item{arrow_lwd}{double, line width of gene arrows in \code{"simple"} style}
 }
 \description{
 Adds Genome Annotation Layers to a ggplot

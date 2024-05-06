@@ -31,3 +31,11 @@ reference:
       - arcgaz_exons
       - argcaz_busco
       - argcaz_busco_go
+  - title: "Data Sets with old scaffold names"
+    desc: >
+      Data with scaffold names containing ";HRSCAF="
+    contents:
+      - arcgaz_genome_start_old_names
+      - arcgaz_genes_old_names
+      - arcgaz_exons_old_names
+      - argcaz_busco_old_names
